@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geotraj-lc"
+version = "0.1.0"
+description = "Trajectory-based lane-change detection for fixed-view highway surveillance videos."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [
+  { name = "GeoTraj-LC Contributors" }
+]
+keywords = [
+  "lane-change detection",
+  "trajectory analysis",
+  "traffic surveillance",
+  "temporal convolutional network"
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+  "numpy>=1.21.0",
+  "pandas>=1.3.0",
+  "torch>=1.9.0",
+  "torchvision>=0.10.0",
+  "opencv-python>=4.5.0",
+  "scipy>=1.7.0",
+  "scikit-learn>=0.24.0",
+  "tqdm>=4.62.0",
+  "Pillow>=8.0.0",
+  "pickle5>=0.0.11; python_version < '3.8'"
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.4"
+]
+
+[project.scripts]
+geotraj-lc-eval = "geotraj_lc.evaluate:main"
+geotraj-lc-train = "geotraj_lc.train:main"
+geotraj-lc-correct-dets = "geotraj_lc.anchor_correction.correction:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["geotraj_lc*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"

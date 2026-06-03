@@ -1,0 +1,40 @@
+runtime:
+  fps: 20.0
+
+temporal_filter:
+  max_gap_time: 1.0
+  process_noise_q: 0.001
+  measurement_noise_r: 0.001
+
+tcn:
+  input_size: 12
+  output_size: 2
+  num_channels: [32, 32, 64, 64]
+  kernel_size: 3
+  dropout: 0.3
+  confidence_threshold: 0.87
+  min_trigger_frames: 3
+
+training:
+  batch_size: 16
+  num_epochs: 100
+  learning_rate: 0.0005
+  weight_decay: 0.0005
+  positive_weight_factor: 0.2
+  grad_clip_max_norm: 1.0
+  train_event_eval_interval: 5
+
+scale_overrides:
+  G0512-K111: 20.0
+  G4202-K32: 9.5
+  G4215-K12: 9.17
+  S2-K152: 5.17
+  S2-K188_0: 3.5
+  S2-K188_1: 3.5
+  S2-K201: 6.0
+  S3-K316: 6.83
+
+splits:
+  train: [G0512-K111, S2-K152, S2-K188_0, S2-K188_1, S2-K201]
+  val: [G4215-K12, S3-K316]
+  test: [G4202-K32]
