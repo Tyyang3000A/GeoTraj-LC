@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cache
+.cache/
+outputs/*
+!outputs/.gitkeep
+!outputs/cache/
+outputs/cache/*
+!outputs/cache/.gitkeep
+!outputs/cache/features/
+!outputs/cache/splits/
+outputs/cache/features/*
+outputs/cache/splits/*
+!outputs/cache/features/.gitkeep
+!outputs/cache/splits/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+pretrained/**/*.pth
+pretrained/**/*.pkl
+!pretrained/.gitkeep
+!pretrained/best/
+!pretrained/best/.gitkeep
