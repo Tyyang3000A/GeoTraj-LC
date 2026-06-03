@@ -52,8 +52,8 @@ The code resolves clip names such as `G4202-K32_clip_0000` to the base sequence
 
 Splits are defined by scene prefix rather than random trajectory sampling:
 
-- train: `G0512-K111`, `S2-K152`, `S2-K188_0`, `S2-K188_1`, `S2-K201`
-- val: `G4215-K12`, `S3-K316`
-- test: `G4202-K32`
+- train: `G4202-K32`, `S2-K188_0`, `S2-K188_1`, `S3-K316`
+- val: `S2-K152`, `S2-K201`
+- test: `G0512-K111`, `G4215-K12`
 
 This avoids training and testing on clips from the same camera scene.

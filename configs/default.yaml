@@ -35,6 +35,6 @@ scale_overrides:
   S3-K316: 6.83
 
 splits:
-  train: [G0512-K111, S2-K152, S2-K188_0, S2-K188_1, S2-K201]
-  val: [G4215-K12, S3-K316]
-  test: [G4202-K32]
+  train: [G4202-K32, S2-K188_0, S2-K188_1, S3-K316]
+  val: [S2-K152, S2-K201]
+  test: [G0512-K111, G4215-K12]

@@ -23,9 +23,9 @@ class Config:
         }
     )
 
-    train_prefixes: Tuple[str, ...] = ("G0512-K111", "S2-K152", "S2-K188_0", "S2-K188_1", "S2-K201")
-    val_prefixes: Tuple[str, ...] = ("G4215-K12", "S3-K316")
-    test_prefixes: Tuple[str, ...] = ("G4202-K32",)
+    train_prefixes: Tuple[str, ...] = ("G4202-K32", "S2-K188_0", "S2-K188_1", "S3-K316")
+    val_prefixes: Tuple[str, ...] = ("S2-K152", "S2-K201")
+    test_prefixes: Tuple[str, ...] = ("G0512-K111", "G4215-K12")
 
     # TCN model
     tcn_input_size: int = 12
