@@ -11,13 +11,13 @@ Recommended reporting checklist for experiments:
 
 ## Verification Commands
 
-```powershell
-D:\pycharmproj\roslearn\.venv\Scripts\python.exe -m compileall geotraj_lc run.py train.py correct_dets.py
-D:\pycharmproj\roslearn\.venv\Scripts\python.exe run.py --help
+```bash
+python -m compileall geotraj_lc run.py train.py correct_dets.py
+python run.py --help
 ```
 
 ## Evaluation
 
-```powershell
-D:\pycharmproj\roslearn\.venv\Scripts\python.exe run.py --split test
+```bash
+python run.py --split test
 ```

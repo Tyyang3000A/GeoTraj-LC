@@ -11,21 +11,25 @@ from geotraj_lc.trajectory.feature_extractor import FeatureExtractor
 
 
 def load_or_generate_splits(splits_path: Path, layout, config: Config):
-    if splits_path.exists():
-        print(f"Loading dataset splits from: {splits_path}")
-        with open(splits_path, "rb") as f:
-            splits = pickle.load(f)
-        print(f"Loaded: train={len(splits['train'])}, val={len(splits['val'])}, test={len(splits['test'])}")
-        return splits["train"], splits["val"], splits["test"]
-
-    print("Dataset splits not found, generating...")
     train_seqs, val_seqs, test_seqs = get_data_splits(layout, config)
-
-    splits = {
+    expected_splits = {
         "train": train_seqs,
         "val": val_seqs,
         "test": test_seqs,
     }
+
+    if splits_path.exists():
+        print(f"Loading dataset splits from: {splits_path}")
+        with open(splits_path, "rb") as f:
+            splits = pickle.load(f)
+        if all(splits.get(name) == expected_splits[name] for name in expected_splits):
+            print(f"Loaded: train={len(splits['train'])}, val={len(splits['val'])}, test={len(splits['test'])}")
+            return splits["train"], splits["val"], splits["test"]
+        print("Cached dataset splits do not match current Config; regenerating...")
+
+    else:
+        print("Dataset splits not found, generating...")
+    splits = expected_splits
     splits_path.parent.mkdir(parents=True, exist_ok=True)
     with open(splits_path, "wb") as f:
         pickle.dump(splits, f, protocol=pickle.HIGHEST_PROTOCOL)
