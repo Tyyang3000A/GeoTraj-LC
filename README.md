@@ -1,5 +1,19 @@
 # GeoTraj-LC: Geometry Corrected Trajectory Modeling for Lane Change Detection in Fixed Roadside Surveillance Videos
 
+<p align="center">
+  <a href="#overview">Overview</a> |
+  <a href="#dataset">Dataset</a> |
+  <a href="#quick-start">Quick Start</a> |
+  <a href="#pipeline">Pipeline</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/PyTorch-1.9%2B-red?style=flat-square&logo=pytorch" alt="PyTorch">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Dataset-RLC-yellow?style=flat-square" alt="Dataset">
+</p>
+
 ## Overview
 
 Lane-change detection from long-duration fixed roadside surveillance videos is
@@ -21,6 +35,13 @@ roadside surveillance views.
 - Scene-level train/validation/test split to avoid camera-scene leakage.
 - Event-level evaluation protocol with overlap matching and latency reporting.
 - Optional bottom-anchor correction module for refined vehicle positions.
+
+## Pipeline
+
+GeoTraj-LC starts from MOT-style tracks with refined lane IDs, corrects vehicle
+bottom anchors, projects trajectories to the road plane, and constructs
+lane-referenced lateral motion features. Smoothed trajectory states are then
+processed by a causal TCN and decoded into lane-change event intervals.
 
 ## Dataset
 
