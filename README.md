@@ -81,6 +81,11 @@ camera view or continue after leaving it.
 
 More details are provided in [docs/DATASET.md](docs/DATASET.md).
 
+**RLC Dataset Access:** To request access to the RLC Dataset, please complete
+the following form:
+
+- [RLC Dataset Request Form](https://docs.google.com/forms/d/e/1FAIpQLSe82Kc17H0slxKrjgtgakVpVSJeijC4zTFzkqn-LZr5lJvamA/viewform)
+
 ## Environment
 
 GeoTraj-LC requires Python 3.8 or later. Install dependencies in a virtual
