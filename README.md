@@ -8,19 +8,31 @@ needed to benchmark lane-change detection from multi-object tracking results.
 
 ## Overview
 
-The pipeline starts from MOT-style vehicle tracks with refined lane IDs. Vehicle
-positions are represented by the bottom-center point of each corrected detection
-box, projected from the image plane to the road plane with sequence-specific
-homography matrices, and normalized to metric coordinates with per-scene scale
-factors. GeoTraj-LC then computes lane-referenced lateral motion features,
-smooths lateral position and velocity over time, and decodes online
-lane-change events with a causal Temporal Convolutional Network (TCN).
+Lane-change detection from long-duration fixed roadside surveillance videos
+requires reliable image-to-road-plane localization and robust temporal
+trajectory modeling under oblique camera views. In these scenarios, conventional
+image-plane detection boxes describe visible vehicle contours rather than road
+contact positions. Directly using raw box centers or bottom midpoints can
+introduce perspective-induced localization bias, distort lateral trajectory
+estimation, and cause false or delayed lane-change confirmation.
 
-A lane-change event is evaluated as a temporal interval: it starts when the
-vehicle begins crossing the lane boundary and ends when the vehicle fully
-enters the target lane. Predictions are matched to annotated events by temporal
-overlap and summarized with event-level precision, recall, F1, temporal IoU,
-and detection latency.
+GeoTraj-LC addresses this problem with a geometry-corrected trajectory modeling
+framework for fixed roadside highway cameras. The framework first corrects
+image anchors by estimating vehicle bottom endpoints, maps the corrected anchors
+onto the calibrated road plane by homography, and constructs lane-reference
+trajectory features with respect to lane centerlines and boundaries. A Kalman
+filter suppresses short-term localization fluctuations in the lateral state,
+while a causal Temporal Convolutional Network (TCN) models the temporal
+evolution of geometry-corrected trajectories. Event-level decoding then converts
+frame probabilities into lane-change intervals.
+
+The repository also releases the RLC Dataset, a highway lane-change event
+dataset built from long-duration fixed roadside surveillance videos. The dataset
+covers multiple representative highway scenarios with different camera views,
+road geometries, mainline and ramp segments, traffic states, and lane-change
+directions. In the associated manuscript, GeoTraj-LC achieves 0.86 precision,
+0.93 recall, and 0.90 F1 score on the RLC Dataset, with an average detection
+latency of 0.48 s.
 
 ## Key Features
 
