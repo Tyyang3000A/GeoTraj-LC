@@ -165,18 +165,14 @@ in the reported numbers. Additional guidance is available in
 
 ## Qualitative Visualization
 
-For a paper-facing release, qualitative visualization is recommended. Useful
-figures include:
+Representative lane-change detection cases from the RLC Dataset are shown
+below.
 
-- Projected road-plane trajectories over lane centerlines and boundaries.
-- Lateral displacement `d` and lateral velocity `v` curves with predicted and
-  annotated lane-change intervals.
-- Video-frame overlays showing the event start, target-lane entry, and final
-  matched interval.
+<p align="center">
+  <img src="docs/assets/lc_case.png" width="900" alt="Representative lane-change detection cases">
+</p>
 
-No generated visualization assets are committed by default. Recommended
-locations are `docs/assets/` for paper figures and `outputs/visualizations/` for
-generated qualitative results.
+Additional generated visualizations can be stored in `outputs/visualizations/`.
 
 ## Configuration
 
