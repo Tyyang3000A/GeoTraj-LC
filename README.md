@@ -3,19 +3,14 @@
 ## Overview
 
 Lane-change detection from long-duration fixed roadside surveillance videos is
-challenging because oblique camera views make image-plane detection boxes
-inconsistent with the road contact positions needed for lateral motion
-reasoning. GeoTraj-LC takes MOT-style vehicle tracks with refined lane IDs,
-lane geometry, homography matrices, and sequence-specific scale factors as
-input, and outputs event-level lane-change intervals together with precision,
-recall, F1, temporal IoU, and latency metrics. The core workflow corrects
-vehicle bottom anchors, projects trajectories onto the calibrated road plane,
-constructs lane-reference lateral motion features, smooths lateral states with a
-Kalman filter, and decodes frame probabilities into lane-change events with a
-causal Temporal Convolutional Network (TCN). The repository also releases the
-RLC Dataset, a highway lane-change event dataset built from fixed roadside
-surveillance videos; in the associated manuscript, GeoTraj-LC achieves 0.86
-precision, 0.93 recall, 0.90 F1, and 0.48 s average detection latency.
+challenging because oblique camera views make generic detector boxes
+inconsistent with the actual road contact positions needed for lateral motion
+reasoning. GeoTraj-LC improves this localization anchor problem by correcting
+vehicle bottom anchors, mapping trajectories onto the calibrated road plane, and
+modeling lane-referenced lateral motion for event-level lane-change detection.
+The repository also releases the RLC Dataset, which, to the best of our
+knowledge, is the first lane-change detection dataset built for highway fixed
+roadside surveillance views.
 
 ## Key Features
 
