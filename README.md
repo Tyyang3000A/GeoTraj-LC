@@ -38,14 +38,17 @@ The expected dataset root is `RLC_Dataset/`.
 
 ```text
 RLC_Dataset/
-|-- annotations/frame_labels/    # frame-level lane-change labels
-|-- annotations/events/          # event-level annotations, if available
-|-- maps/centerlines/            # lane centerline geometry
-|-- maps/lane_boundaries/        # lane boundary geometry
-|-- maps/homography/             # image-to-road homography matrices
-|-- maps/scale_factors.json      # scene-specific metric scale factors
-|-- tracks/refined/              # MOT tracks with refined lane IDs
-`-- videos/                      # source or sample videos
+├── annotations/
+│   ├── frame_labels/            # frame-level lane-change labels
+│   └── events/                  # event-level annotations, if available
+├── maps/
+│   ├── centerlines/             # lane centerline geometry
+│   ├── lane_boundaries/         # lane boundary geometry
+│   ├── homography/              # image-to-road homography matrices
+│   └── scale_factors.json       # scene-specific metric scale factors
+├── tracks/
+│   └── refined/                 # MOT tracks with refined lane IDs
+└── videos/                      # source or sample videos
 ```
 
 Input track files use MOT-style rows with one additional lane ID column:
