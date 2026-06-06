@@ -200,6 +200,15 @@ manuscript and update the entry after publication:
 }
 ```
 
+## Contact
+
+For questions about the code or data format, please open an issue in this
+repository.
+
+For video data access requests, please use the request form above.
+
+Email: corfyi@csust.edu.cn
+
 ## Acknowledgements
 
 This repository builds on standard open-source scientific Python and PyTorch
