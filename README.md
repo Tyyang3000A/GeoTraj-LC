@@ -32,23 +32,6 @@ and detection latency.
 - Event-level evaluation protocol with overlap matching and latency reporting.
 - Optional bottom-anchor correction module for refined vehicle positions.
 
-## Repository Layout
-
-```text
-GeoTraj-LC/
-|-- geotraj_lc/              # core implementation
-|-- RLC_Dataset/             # tracks, annotations, maps and sample video
-|-- configs/                 # configuration snapshot
-|-- docs/                    # dataset and reproducibility notes
-|-- outputs/                 # generated outputs, ignored by Git
-|-- pretrained/              # model weights, ignored by Git
-|-- correct_dets.py          # optional detection-box correction entry
-|-- run.py                   # evaluation entry
-|-- train.py                 # training entry
-|-- requirements.txt
-`-- pyproject.toml
-```
-
 ## Dataset
 
 The expected dataset root is `RLC_Dataset/`.
@@ -83,20 +66,6 @@ present in the annotations; incomplete events may start before entering the
 camera view or continue after leaving it.
 
 More details are provided in [docs/DATASET.md](docs/DATASET.md).
-
-## Data Split
-
-The default protocol splits data by camera scene rather than by individual
-tracks:
-
-| Split | Scene prefixes | Clips | Tracks | Left LC | Right LC | Total LC |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| train | G4202-K32, S2-K188_0, S2-K188_1, S3-K316 | 38 | 9,102 | 482 | 308 | 790 |
-| val | G4215-K12, S2-K201 | 17 | 3,126 | 98 | 137 | 235 |
-| test | G0512-K111, S2-K152 | 21 | 10,509 | 389 | 351 | 740 |
-| total | 8 scenes | 76 | 22,737 | 969 | 796 | 1,765 |
-
-This protocol evaluates generalization to unseen fixed-camera scenes.
 
 ## Environment
 
@@ -199,25 +168,18 @@ homography road-plane units to meters.
 
 ## Citation
 
-If you use this code or dataset in your research, please cite the corresponding
-paper. The BibTeX entry will be added after publication.
+The manuscript associated with this repository is currently under review. Until
+an accepted or public preprint version is available, cite it as a submitted
+manuscript and update the entry after publication:
 
 ```bibtex
-@misc{geotrajlc2026,
+@unpublished{geotrajlc2026,
   title  = {GeoTraj-LC: Geometry-Rectified Trajectory Learning for Lane-Change Detection},
-  author = {GeoTraj-LC Contributors},
+  author = {{GeoTraj-LC Authors}},
   year   = {2026},
-  note   = {Code repository}
+  note   = {Manuscript submitted for publication}
 }
 ```
-
-## License
-
-The source code is released under the MIT License. See [LICENSE](LICENSE).
-
-Dataset files, videos, annotations, and map assets may be subject to additional
-terms. Please check the dataset release notes before redistribution or external
-use.
 
 ## Acknowledgements
 
