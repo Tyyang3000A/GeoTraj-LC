@@ -1,4 +1,4 @@
-# GeoTraj-LC: Geometry Corrected Trajectory Modeling for Lane Change Detection in Fixed Roadside Surveillance Videos
+# GeoTraj-LC: Road Contact Anchor Correction and Trajectory Modeling Relative to Lane Geometry for Lane Change Event Detection in Fixed Roadside Video
 
 <p align="center">
   <a href="#overview">Overview</a> |
