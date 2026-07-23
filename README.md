@@ -181,21 +181,6 @@ and mirrored by the snapshot in [configs/default.yaml](configs/default.yaml).
 The default frame rate is 20 FPS. Sequence-specific scale factors convert
 homography road-plane units to meters.
 
-## Citation
-
-The manuscript associated with this repository is currently under review. Until
-an accepted or public preprint version is available, cite it as a submitted
-manuscript and update the entry after publication:
-
-```bibtex
-@unpublished{geotrajlc2026,
-  title  = {GeoTraj-LC: Geometry-Rectified Trajectory Learning for Lane-Change Detection},
-  author = {{GeoTraj-LC Authors}},
-  year   = {2026},
-  note   = {Manuscript submitted for publication}
-}
-```
-
 ## Contact
 
 For questions about the code or data format, please open an issue in this
